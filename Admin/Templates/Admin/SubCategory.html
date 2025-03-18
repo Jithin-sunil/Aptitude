@@ -1,0 +1,100 @@
+{% extends 'Admin/Header.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub-Category</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header text-center">
+                        <h3>Manage Sub-Category</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="POST" novalidate>
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="sel_category" class="form-label">Category</label>
+                                <select name="sel_category" 
+                                        id="sel_category" 
+                                        class="form-select" 
+                                        required>
+                                    <option value="">Select</option>
+                                    {% for i in Category %}
+                                    <option value="{{i.id}}"
+                                            {% if i.id == edit.category_id %}selected{% endif %}>
+                                        {{i.category_name}}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                                <div class="error" id="categoryError"></div>
+                            </div>
+    
+                            <div class="mb-3">
+                                <label for="txt_subcategory" class="form-label">Sub-Category</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="txt_subcategory" 
+                                       name="txt_subcategory" 
+                                       required
+                                       pattern="[A-Za-z ]{2,}"
+                                       title="Sub-Category must be at least 2 characters and contain only letters and spaces">
+                                <div class="error" id="subcategoryError"></div>
+                            </div>
+    
+                            <div class="text-center">
+                                <button type="submit" 
+                                        name="btn_submit" 
+                                        class="btn btn-primary w-50">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>Sub-Category List</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Si.No</th>
+                                        <th>Category</th>
+                                        <th>Sub-Category</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in SubCategory %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{i.category.category_name}}</td>
+                                        <td>{{i.subcategory_name}}</td>
+                                        <td>
+                                            <a href="{% url 'Admin:delsubcat' i.id %}" 
+                                               class="btn btn-danger btn-sm me-1">Delete</a>
+                                            <a href="{% url 'Admin:editsubcat' i.id %}" 
+                                               class="btn btn-success btn-sm">Edit</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

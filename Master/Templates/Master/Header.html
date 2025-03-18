@@ -1,0 +1,210 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="{% static 'Main/img/favicon.png' %}" type="image/png" />
+    <title>Edustage Education</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'Main/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'Main/css/flaticon.css' %}" />
+    <link rel="stylesheet" href="{% static 'Main/css/themify-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'Main/vendors/owl-carousel/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'Main/vendors/nice-select/css/nice-select.css' %}" />
+    <!-- main css -->
+    <link rel="stylesheet" href="{% static 'Main/css/style.css' %}" />
+  </head>
+
+  <body>
+    <!--================ Start Header Menu Area =================-->
+    <header class="header_area">
+      <div class="main_menu">
+        <div class="search_input" id="search_input_box">
+          <div class="container">
+            <form class="d-flex justify-content-between" method="" action="">
+              <input
+                type="text"
+                class="form-control"
+                id="search_input"
+                placeholder="Search Here"
+              />
+              <button type="submit" class="btn"></button>
+              <span
+                class="ti-close"
+                id="close_search"
+                title="Close Search"
+              ></span>
+            </form>
+          </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="height: 80px;">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="index.html"
+              ><img src="{% static 'Main/img/logo.png' %}" alt=""
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span> <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset"
+              id="navbarSupportedContent"
+            >
+              <ul class="nav navbar-nav menu_nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'User:HomePage'%}">Home</a></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'User:MyProfile'%}">MyProfile</a></a>
+                </li>
+                <!-- <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >Pages</a
+                  >
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="course-details.html"
+                        >Course Details</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="elements.html">Elements</a>
+                    </li>
+                  </ul>
+                </li>-->
+                <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >Message</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'User:FeedBack'%}">FeedBack</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'User:Complaints'%}">Complaints</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'User:ViewQuestionPaper'%}">ViewQuestionPaper</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div  style="min-height: 700px;">
+<br>
+<br>
+<br>
+<br>
+        <!--================ End Header Menu Area =================-->
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="footer-area section_gap">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 col-md-6 single-footer-widget">
+              <h4>Top Products</h4>
+              <ul>
+                <li><a href="#">Managed Website</a></li>
+                <li><a href="#">Manage Reputation</a></li>
+                <li><a href="#">Power Tools</a></li>
+                <li><a href="#">Marketing Service</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 single-footer-widget">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Brand Assets</a></li>
+                <li><a href="#">Investor Relations</a></li>
+                <li><a href="#">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 single-footer-widget">
+              <h4>Features</h4>
+              <ul>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Brand Assets</a></li>
+                <li><a href="#">Investor Relations</a></li>
+                <li><a href="#">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 single-footer-widget">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Experts</a></li>
+                <li><a href="#">Agencies</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row footer-bottom d-flex justify-content-between text-center">
+            <p class="col-lg-8 col-sm-12 footer-text m-0 text-white text-center">
+                © 2024 Electrify. All rights reserved.
+            </p>
+            <div class="col-lg-4 col-sm-12 footer-social">
+              <a><i class="ti-facebook"></i></a>
+              <a><i class="ti-twitter"></i></a>
+              <a><i class="ti-dribbble"></i></a>
+              <a><i class="ti-linkedin"></i></a>
+            </div>
+  
+          </div>
+        </div>
+      </footer>
+      <!--================ End footer Area  =================-->
+  
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="{% static 'Main/js/jquery-3.2.1.min.js' %}"></script>
+      <script src="{% static 'Main/js/popper.js' %}"></script>
+      <script src="{% static 'Main/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'Main/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+      <script src="{% static 'Main/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'Main/js/owl-carousel-thumb.min.js' %}"></script>
+      <script src="{% static 'Main/js/jquery.ajaxchimp.min.js' %}"></script>
+      <script src="{% static 'Main/js/mail-script.js' %}"></script>
+      <!--gmaps Js-->
+      <script src="{% static 'Main/https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE' %}"></script>
+      <script src="{% static 'Main/js/gmaps.min.js' %}"></script>
+      <script src="{% static 'Main/js/theme.js' %}"></script>
+    </body>
+  </html>

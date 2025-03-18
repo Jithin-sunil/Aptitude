@@ -1,0 +1,88 @@
+
+{% extends 'Admin/Header.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master-Approval</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>Master Approval List</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="POST">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Si.No</th>
+                                            <th>Name</th>
+                                            <th>Contact</th>
+                                            <th>Email</th>
+                                            <th>Address</th>
+                                            <th>Photo</th>
+                                            <th>Proof</th>
+                                            <th>District</th>
+                                            <th>Place</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in master %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{i.master_name}}</td>
+                                            <td>{{i.master_contact}}</td>
+                                            <td>{{i.master_email}}</td>
+                                            <td>{{i.master_address}}</td>
+                                            <td>
+                                                <img src="{{i.master_photo.url}}" 
+                                                     class="img-fluid rounded" 
+                                                     width="150" 
+                                                     height="150" 
+                                                     alt="Master Photo">
+                                            </td>
+                                            <td>
+                                                <img src="{{i.master_proof.url}}" 
+                                                     class="img-fluid rounded" 
+                                                     width="150" 
+                                                     height="150" 
+                                                     alt="Master Proof">
+                                            </td>
+                                            <td>{{i.place.district.district_name}}</td>
+                                            <td>{{i.place.place_name}}</td>
+                                            <td>
+                                                {% if i.master_vstatus == 1 %}
+                                                <a href="{% url 'Admin:reject' i.id %}" 
+                                                   class="btn btn-danger btn-sm">Reject</a>
+                                                {% elif i.master_vstatus == 2 %}
+                                                <a href="{% url 'Admin:accept' i.id %}" 
+                                                   class="btn btn-success btn-sm">Accept</a>
+                                                {% else %}
+                                                <a href="{% url 'Admin:accept' i.id %}" 
+                                                   class="btn btn-success btn-sm me-1">Accept</a>
+                                                <a href="{% url 'Admin:reject' i.id %}" 
+                                                   class="btn btn-danger btn-sm">Reject</a>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
